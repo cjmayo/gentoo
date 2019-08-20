@@ -15,7 +15,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
 IUSE="doc"
 
-RDEPEND=">=dev-python/pyudev-0.13[${PYTHON_USEDEP}]
+RDEPEND="acct-group/plugdev
+	>=dev-python/pyudev-0.13[${PYTHON_USEDEP}]
 	dev-python/pygobject:3[${PYTHON_USEDEP}]
 	x11-libs/gtk+:3[introspection]"
 
@@ -45,8 +46,6 @@ python_install_all() {
 }
 
 pkg_postinst() {
-	enewgroup plugdev
-
 	if [[ -z ${REPLACING_VERSIONS} ]] ; then
 		elog "Users must be in the plugdev group to use this application."
 	fi
