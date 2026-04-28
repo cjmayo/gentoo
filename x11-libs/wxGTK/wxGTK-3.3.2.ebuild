@@ -158,6 +158,7 @@ multilib_src_configure() {
 	# wxGTK options
 	#   wxUSE_GRAPHICS_CONTEXT=ON - needed for webkit, editra
 	#   wxUSE_LIBGNOMEVFS=OFF - bug #203389
+	#   wxUSE_PRIVATE_FONTS=ON - wxFontBase::AddPrivateFont()
 	(use X || use wayland) && mycmakeargs+=(
 		-DwxUSE_GRAPHICS_CONTEXT=ON
 		-DwxUSE_GTKPRINT=ON
@@ -169,6 +170,7 @@ multilib_src_configure() {
 		-DwxUSE_LIBTIFF="$(usex tiff sys OFF)"
 		-DwxUSE_LIBWEBP=sys
 		-DwxUSE_NANOSVG=sys
+		-DwxUSE_PRIVATE_FONTS=ON
 
 		-DwxUSE_LIBGNOMEVFS=OFF
 		-DwxUSE_LIBSDL="$(usex sdl)"
